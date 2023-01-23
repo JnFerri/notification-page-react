@@ -4,6 +4,7 @@ import image0 from '../../assets/images/avatar-mark-webber.webp'
 import image1 from '../../assets/images/avatar-angela-gray.webp'
 import image2 from '../../assets/images/avatar-jacob-thompson.webp'
 import image3 from '../../assets/images/avatar-rizky-hasanuddin.webp'
+import Style from './List.module.scss'
 
 
 function List() {
@@ -50,7 +51,7 @@ function List() {
         
             <section>
                 <div>
-                    <h3>notifications</h3>
+                    <h3 className={Style.titulo}>notifications</h3>
                     <h4>Mark all as read</h4>
                 </div>
                 <ul>
