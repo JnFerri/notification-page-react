@@ -7,4 +7,5 @@ export interface INotifications{
     messageClick:string,
     time:string,
     select:boolean
+    id:string
 }

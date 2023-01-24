@@ -5,6 +5,8 @@ import image1 from '../../assets/images/avatar-angela-gray.webp'
 import image2 from '../../assets/images/avatar-jacob-thompson.webp'
 import image3 from '../../assets/images/avatar-rizky-hasanuddin.webp'
 import Style from './List.module.scss'
+import {v4 as uuidv4} from 'uuid'
+import { Item } from './Item/Item'
 
 
 function List() {
@@ -16,7 +18,9 @@ function List() {
             messagePrivate:``,
             messageClick:`My first tournament today!`,
             time:`01min`,
-            select: false
+            select: false,
+            id:uuidv4()
+            
         },
         {
         image: image1,
@@ -25,7 +29,8 @@ function List() {
         messagePrivate:``,
         messageClick:``,
         time:`05min`,
-        select: false
+        select: false,
+        id:uuidv4()
     },
     {
         image: image2,
@@ -34,7 +39,8 @@ function List() {
         messagePrivate:``,
         messageClick:`Chess Club`,
         time:`01 day ago`,
-        select: false
+        select: false,
+        id:uuidv4()
     },
     {
         image: image3,
@@ -44,24 +50,24 @@ function List() {
         I'm already having lots of fun and improving my game.`,
         messageClick:``,
         time:`5 days ago`,
-        select: false
+        select: false,
+        id:uuidv4()
     }
 ]
+
+
     return(
         
             <section>
                 <div>
                     <h3 className={Style.titulo}>notifications</h3>
-                    <h4>Mark all as read</h4>
+                    <h4 >Mark all as read</h4>
                 </div>
                 <ul>
                     {notifications.map((notification, index)=>
-                    (<li>
-                    <img src={notification.image} alt=""/>
-                    <p><strong>{notification.name} </strong>{notification.message} <a>{notification.messageClick}</a></p>
-                    <span>{notification.messagePrivate}</span>
-                    <p>{notification.time}</p>
-                </li>))}
+                    <Item key={index}
+                        {...notification}
+                        />)}
                 
                 </ul>
             </section>
