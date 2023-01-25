@@ -55,13 +55,17 @@ function List() {
     }
 ]
 
+const [unreadNotifications, setUnreadNotifications] = useState(notifications.length)
+
+const readNotification = () => {
+   const num =  notifications.map(notification => )
 
     return(
         
             <section>
                 <div>
                     <h3 className={Style.titulo}>notifications</h3>
-                    <h4 >Mark all as read</h4>
+                    <h4 >Mark all as read <strong>{unreadNotifications}</strong></h4>
                 </div>
                 <ul>
                     {notifications.map((notification, index)=>
