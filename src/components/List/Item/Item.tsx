@@ -1,25 +1,24 @@
+import { setSelectionRange } from "@testing-library/user-event/dist/utils"
 import { useState } from "react"
 import  INotifications  from "../../../types/notifications"
+import style from '../List.module.scss'
 
+interface Props extends INotifications{
+    selectNotification: (notificationSelected:INotifications) => void
+    lessNum:(value:number) => void
+}
 
-export function Item({image,name,message,messageClick,messagePrivate,time,select,id}:INotifications){
+export function Item({image,name,message,messageClick,messagePrivate,time,select,id,selectNotification,lessNum}:Props){
     
-    const [styleItem,setStyle] = useState( {
-        item:{
-            background:'hsl(205, 33%, 90%)'
-        },
-        
-    })
+    function handle(){
+        selectNotification({ image,name,message,messageClick,messagePrivate,time,select,id})
+        if(select === true){lessNum(1)}
+    }
 
-   const changeBackgroundColor=() => {
-    setStyle({
-        item: {
-            background:'white'
-        }
-        
-    })}
+
     return(
-        <li style={styleItem.item} onClick = {changeBackgroundColor}>
+        <li 
+        onClick = {handle}>
                     <img src={image} alt=""/>
                     <p><strong>{name} </strong>{message} <a>{messageClick}</a></p>
                     <span>{messagePrivate}</span>

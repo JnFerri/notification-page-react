@@ -7,10 +7,11 @@ import image1 from '../assets/images/avatar-angela-gray.webp'
 import image2 from '../assets/images/avatar-jacob-thompson.webp'
 import image3 from '../assets/images/avatar-rizky-hasanuddin.webp'
 import { v4 as uuidv4 } from 'uuid'
+import INotifications from "../types/notifications";
 
 
 function App() {
-  const [notifications, setNotification] = useState([
+  const [notifications, setNotification] = useState<INotifications[]>([
     {
         image: image0,
         name: 'Mark Webber',
@@ -54,10 +55,30 @@ function App() {
         id: uuidv4()
     }
 ])
+
+const [select,setSelect]=useState<INotifications>()
+
+const [numNotifications, setNumNotificartion] = useState(notifications.length)
+
+function selectNotification(notificationSelected:INotifications){
+  setSelect(notificationSelected)
+  setNotification(Notification => Notification.map(notification => ({...notification,
+    select: notification.id === notificationSelected.id ? true : false
+  })))
+}
+
+function lessNum(value:number){
+  setNumNotificartion(numNotifications - value)
+}
+
+
   return (
     <div className="App">
       <List 
+      numNotification = {numNotifications}
+      lessNum = {lessNum}
       notifications={notifications}
+      selectNotification={selectNotification}
       />
     </div>
   );
