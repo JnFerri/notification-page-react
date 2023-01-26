@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { INotifications } from "../../../types/notifications"
+import  INotifications  from "../../../types/notifications"
 
 
-export function Item({image,name,message,messageClick,messagePrivate,time,id}:INotifications){
+export function Item({image,name,message,messageClick,messagePrivate,time,select,id}:INotifications){
     
     const [styleItem,setStyle] = useState( {
         item:{
@@ -16,9 +16,8 @@ export function Item({image,name,message,messageClick,messagePrivate,time,id}:IN
         item: {
             background:'white'
         }
-    })
-
-    }
+        
+    })}
     return(
         <li style={styleItem.item} onClick = {changeBackgroundColor}>
                     <img src={image} alt=""/>

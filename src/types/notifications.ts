@@ -1,5 +1,5 @@
 
-export interface INotifications{
+export default interface INotifications{
     image : string,
     name: string,
     message:string,
