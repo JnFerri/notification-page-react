@@ -12,12 +12,12 @@ export function Item({image,name,message,messageClick,messagePrivate,time,select
     
     function handle(){
         selectNotification({ image,name,message,messageClick,messagePrivate,time,select,id})
-        if(select === true){lessNum(1)}
+        if(select === true ){lessNum(1)}
     }
 
 
     return(
-        <li 
+        <li className = {`${style.notification} ${select ? style.notificationSelected : ''}`}
         onClick = {handle}>
                     <img src={image} alt=""/>
                     <p><strong>{name} </strong>{message} <a>{messageClick}</a></p>
