@@ -21,6 +21,7 @@ function App() {
         time: `01min`,
         select: false,
         id: uuidv4()
+        
 
     },
     {
@@ -58,25 +59,21 @@ function App() {
 
 const [select,setSelect]=useState<INotifications>()
 
-const [numNotifications, setNumNotificartion] = useState(notifications.length)
+
 
 function selectNotification(notificationSelected:INotifications){
   setSelect(notificationSelected)
   setNotification(Notification => Notification.map(notification => ({...notification,
-    select: notification.id === notificationSelected.id ? true : false
+    select: notification.id === notificationSelected.id || notificationSelected.select != true ? true : false
   })))
 }
 
-function lessNum(value:number){
-  setNumNotificartion(numNotifications - value)
-}
+
 
 
   return (
     <div className="App">
       <List 
-      numNotification = {numNotifications}
-      lessNum = {lessNum}
       notifications={notifications}
       selectNotification={selectNotification}
       />

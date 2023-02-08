@@ -6,25 +6,29 @@ import { Item } from './Item/Item'
 interface Props{
     notifications:INotifications[],
     selectNotification: (notificationSelected:INotifications) => void
-    lessNum: (value:number) => void
-    numNotification : number
 }
 
 
-function List ({notifications, selectNotification,lessNum,numNotification}: Props) {
+function List ({notifications, selectNotification}: Props) {
     
+    const [numNotifications, setNumNotification] = useState(notifications.length)
+    function markAllAsRead(){
+        setNumNotification(0)
+    }
     return (
 
         <section>
             <div>
                 <h3 className={Style.titulo}>notifications</h3>
-                <h4 >Mark all as read <strong>{numNotification}</strong></h4>
+                <div><h4 onClick={markAllAsRead}>Mark all as read </h4> <div>{numNotifications}</div></div>
             </div>
             <ul>
                 {notifications.map((notification) =>
-                    <Item key={notification.id}
+                    <Item
+                    numNotifications = {numNotifications}
+                    setNumNotification = {setNumNotification}
+                    key={notification.id}
                         selectNotification = {selectNotification}
-                        lessNum = {lessNum}
                         {...notification}
                     />)}
 
