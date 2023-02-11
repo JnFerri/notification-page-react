@@ -21,8 +21,6 @@ function App() {
         time: `01min`,
         select: false,
         id: uuidv4()
-        
-
     },
     {
         image: image1,
@@ -59,6 +57,7 @@ function App() {
 
 const [select,setSelect]=useState<INotifications>()
 
+const [numNotifications, setNumNotification] = useState(notifications.length)
 
 
 function selectNotification(notificationSelected:INotifications){
@@ -74,6 +73,8 @@ console.log(notifications)
   return (
     <div className="App">
       <List 
+      numNotifications={numNotifications}
+      setNumNotification = {setNumNotification}
       notifications={notifications}
       setNotification = {setNotification}
       selectNotification={selectNotification}
