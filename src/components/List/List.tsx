@@ -6,14 +6,16 @@ import { Item } from './Item/Item'
 interface Props{
     notifications:INotifications[],
     selectNotification: (notificationSelected:INotifications) => void
+    setNotification:React.Dispatch<React.SetStateAction<INotifications[]>>
 }
 
 
-function List ({notifications, selectNotification}: Props) {
+function List ({notifications, selectNotification,setNotification}: Props) {
     
     const [numNotifications, setNumNotification] = useState(notifications.length)
     function markAllAsRead(){
         setNumNotification(0)
+        setNotification(Notification => Notification.map(notification => ({...notification, select : true})))
     }
     return (
 

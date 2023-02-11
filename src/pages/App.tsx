@@ -63,18 +63,19 @@ const [select,setSelect]=useState<INotifications>()
 
 function selectNotification(notificationSelected:INotifications){
   setSelect(notificationSelected)
-  setNotification(Notification => Notification.map(notification => ({...notification,
-    select: notification.id === notificationSelected.id || notificationSelected.select != true ? true : false
+  setNotification(Notification => Notification.map(notification => ({...notification, select: notification.id === notificationSelected.id && notification.select != true ? true : notification.select === true ? true : false
   })))
+  
 }
 
-
+console.log(notifications)
 
 
   return (
     <div className="App">
       <List 
       notifications={notifications}
+      setNotification = {setNotification}
       selectNotification={selectNotification}
       />
     </div>
