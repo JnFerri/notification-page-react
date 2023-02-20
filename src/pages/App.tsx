@@ -8,6 +8,7 @@ import image2 from '../assets/images/avatar-jacob-thompson.webp'
 import image3 from '../assets/images/avatar-rizky-hasanuddin.webp'
 import { v4 as uuidv4 } from 'uuid'
 import INotifications from "../types/notifications";
+import style from "./App.module.scss"
 
 
 function App() {
@@ -71,14 +72,16 @@ console.log(notifications)
 
 
   return (
-    <div className="App">
-      <List 
-      numNotifications={numNotifications}
-      setNumNotification = {setNumNotification}
-      notifications={notifications}
-      setNotification = {setNotification}
-      selectNotification={selectNotification}
-      />
+    <div className={style.app}>
+      <section className={style.notifications}>
+        <List
+        numNotifications={numNotifications}
+        setNumNotification = {setNumNotification}
+        notifications={notifications}
+        setNotification = {setNotification}
+        selectNotification={selectNotification}
+        />
+      </section>
     </div>
   );
 }

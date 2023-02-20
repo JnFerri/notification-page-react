@@ -30,7 +30,7 @@ function List ({notifications, selectNotification,setNotification,numNotificatio
 
                     </div>
             </div>
-            <ul>
+            <ul className={Style.lista}>
                 {notifications.map((notification) =>
                     <Item
                     numNotifications = {numNotifications}
