@@ -22,12 +22,13 @@ export function Item({image,name,message,messageClick,messagePrivate,time,select
     return(
         <li className = {`${style.notification} ${select && style.notificationSelect}`}
         onClick = {handle}>
+                        <div className={style.image__box}><img className={style.image__item} src={image} alt=""/></div>
                 <div className={style.notification__item}>
-                        <img src={image} alt=""/>
-                        <p><strong>{name} </strong>{message} <a>{messageClick}</a></p>
+                        <p className={style.text__item}><strong className={style.item__name}>{name} </strong>{message} <a className={style.text__itemLink}>{messageClick}</a></p>
+                            <span className={style.item__time}>{time}</span>
+                            <span className={`${style.privateMessage__item} ${select && style.privateMessage__itemSelect}`}>{messagePrivate}</span>
                 </div>
-                        <p>{time}</p>
-                        <span className="">{messagePrivate}</span>
+                        
                 </li>
     )
 }

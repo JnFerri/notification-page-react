@@ -1,17 +1,69 @@
 .notification{
-    background-color: rgb(165, 217, 238);
-    padding: 5px 20px;
-    margin: 5px;
+    background-color: hsl(206, 71%, 93%);
+    padding: 10px 10px;
+    margin: 10px 5px;
     border-radius: 10px;
-    font-size: 14px;
     display: flex;
-    flex-direction: column;
 }
 
 .notificationSelect{
-    background-color: whitesmoke;}
+    background-color: hsl(210, 60%, 98%);
+    padding: 10px 10px;
+    margin: 10px 5px;
+    border-radius: 10px;
+    display: flex;
+    }
 
 .notification__item{
-   width: 100%;
+   width: 95%;
    display: flex;
+   flex-direction: column;
+
+}
+.image__box{
+    margin-right: 10px;
+}
+
+.image__item{
+    width: 50px;
+}
+
+.item__name{
+    color: black;
+    margin-right: 4px;
+}
+.text__item{
+    font-size: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: justify;
+    margin: 0;
+    color: hsl(219, 12%, 42%);
+}
+.text__itemLink{
+    color: hsl(210, 10%, 44%);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+}
+
+.text__itemLink:hover{
+    color: hsl(219, 85%, 26%);
+    cursor: pointer;
+}
+
+.item__time{
+    margin: 5px 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: hsl(219, 14%, 63%);
+}
+
+.privateMessage__item{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: hsl(219, 12%, 42%);
+}
+
+.privateMessage__itemSelect{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: hsl(219, 12%, 42%);
+    padding: 4px 4px;
+    border: 0.1px solid hsl(0, 0%, 90%);
 }
