@@ -2,6 +2,7 @@ import { setSelectionRange } from "@testing-library/user-event/dist/utils"
 import { useState } from "react"
 import  INotifications  from "../../../types/notifications"
 import style from './Item.module.scss'
+import { PrivateMessage } from "./PrivateMessage/PrivateMessage"
 
 interface Props extends INotifications{
     selectNotification: (notificationSelected:INotifications) => void
@@ -26,7 +27,14 @@ export function Item({image,name,message,messageClick,messagePrivate,time,select
                 <div className={style.notification__item}>
                         <p className={style.text__item}><strong className={style.item__name}>{name} </strong>{message} <a className={style.text__itemLink}>{messageClick}</a></p>
                             <span className={style.item__time}>{time}</span>
-                            <span className={`${style.privateMessage__item} ${select && style.privateMessage__itemSelect}`}>{messagePrivate}</span>
+                            
+                                 <PrivateMessage 
+                                messagePrivate = {messagePrivate}
+                                select = {select}
+                                ></PrivateMessage>
+                                
+
+                                     
                 </div>
                         
                 </li>
